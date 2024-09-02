@@ -1,0 +1,39 @@
+﻿@model Student
+
+<h2>Add New Student</h2>
+<br />
+<hr />
+<br />
+
+<form action="~/Student/Create" method="post">
+
+    <div class="form-group">
+        <label for="Name" class="form-label">Student Name</label>
+        <input type="text" id="Name" name="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Age" class="form-label">Student Age</label>
+        <input type="number" id="Age" name="Age" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Salary" class="form-label">Student Address</label>
+        <input type="text" id="Address" name="Address" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="DepartmentId" class="form-label">Department</label>
+        <select id="DepartmentId" name="DepartmentId" class="form-control">
+            <option value="">-- Select Department --</option>
+            @foreach (var item in ViewBag.Departments)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+    </div>
+
+    <input type="submit" value="Create Student" class="btn btn-success my-5" />
+    <a href="~/Student/Index" class="btn btn-secondary">Cancel</a>
+</form>
+
